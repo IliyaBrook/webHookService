@@ -9,9 +9,9 @@ router.post('/changeStatus',  (req, res) => {
     // console.log(JSON.stringify(req.body, null, 2));
 
     const dataJsonString = JSON.stringify(req.body);
-    const dataJson = req.json();
+    // const dataJson = req.json();
     console.log('brook data', dataJsonString)
-    console.log('brook data event', dataJson.event)
+    console.log('brook data event', req.body.event)
 
     // console.log('brook board: ', boardId)
     // console.log('brook itemId: ', itemId)
