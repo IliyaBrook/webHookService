@@ -25,9 +25,8 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true
 }));
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.post("/", function(req, res) { console.log(JSON.stringify(req.body, 0, 2)); res.status(200).send(req.body);})
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
