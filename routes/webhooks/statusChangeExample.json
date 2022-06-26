@@ -1,0 +1,46 @@
+{
+  "event": {
+    "userId": 31488366,
+    "originalTriggerUuid": null,
+    "boardId": 2845121905,
+    "groupId": "topics",
+    "pulseId": 2845122083,
+    "pulseName": "testUser555",
+    "columnId": "status",
+    "columnType": "color",
+    "columnTitle": "שלב",
+    "value": {
+      "label": {
+        "index": 6,
+        "text": "לומד בקורס",
+        "style": {
+          "color": "#FFCB00",
+          "border": "#C0AB1B",
+          "var_name": "yellow"
+        },
+        "is_done": false
+      },
+      "post_id": null
+    },
+    "previousValue": {
+      "label": {
+        "index": 5,
+        "text": null,
+        "style": {
+          "color": "#c4c4c4",
+          "border": "#B0B0B0",
+          "var_name": "grey"
+        },
+        "is_done": false
+      },
+      "post_id": null
+    },
+    "changedAt": 1656266644.7398949,
+    "isTopGroup": true,
+    "app": "monday",
+    "type": "update_column_value",
+    "triggerTime": "2022-06-26T18:04:05.206Z",
+    "subscriptionId": 136524894,
+    "triggerUuid": "67b425fe201b82c90d1715f439a45657"
+  }
+}
