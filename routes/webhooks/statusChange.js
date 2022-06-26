@@ -22,7 +22,7 @@ router.post('/changeStatus',  (req, res, next) => {
         }).catch(queryError => console.log('queryError: ', queryError))
 
     //Register monday webhook
-    app.post("/", function(req, res) { console.log(JSON.stringify(req.body, 0, 2)); res.status(200).send(req.body);})
+    // app.post("/", function(req, res) { console.log(JSON.stringify(req.body, 0, 2)); res.status(200).send(req.body);})
 });
 
 
