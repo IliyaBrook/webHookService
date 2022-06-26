@@ -7,7 +7,7 @@ const queryItems = require('../../querys/itemsAndColumnValues');
 
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
-router.post('/changeStatus',  (req, res) => {
+router.post('/changeStatus',  (req, res, next) => {
     // console.log(JSON.stringify(req.body, null, 2));
 
     const dataJsonString = JSON.stringify(req.body);
@@ -20,15 +20,17 @@ router.post('/changeStatus',  (req, res) => {
     console.log('brook itemId: ', itemId)
     console.log('brook groupId: ', groupId)
 
-    fetch(queryItems(boardId, groupId, itemId))
-        .then(queryRes => {
-            console.log('query response:', queryRes)
-        }).catch(queryError => console.log('queryError: ', queryError))
 
+    next()
 
     //Register monday webhook
     app.post("/", function(req, res) { console.log(JSON.stringify(req.body, 0, 2)); res.status(200).send(req.body);})
 });
+
+fetch(queryItems(2845121905, "topics", 2845122083))
+    .then(queryRes => {
+        console.log('query response:', queryRes)
+    }).catch(queryError => console.log('queryError: ', queryError))
 
 
 module.exports = router;
