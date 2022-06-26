@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 module.exports = async (query) => {
     const mondayToken = process.env.MONDAY_GRAPHQL_TOKEN;
     try {
