@@ -27,10 +27,10 @@ router.post('/changeStatus',  (req, res, next) => {
     app.post("/", function(req, res) { console.log(JSON.stringify(req.body, 0, 2)); res.status(200).send(req.body);})
 });
 
-fetch(queryItems(2845121905, "topics", 2845122083))
-    .then(queryRes => {
-        console.log('query response:', queryRes)
-    }).catch(queryError => console.log('queryError: ', queryError))
+// fetch(queryItems(2845121905, "topics", 2845122083))
+//     .then(queryRes => {
+//         console.log('query response:', queryRes)
+//     }).catch(queryError => console.log('queryError: ', queryError))
 
 
 module.exports = router;
