@@ -27,6 +27,9 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.post("/", function(req, res) { console.log(JSON.stringify(req.body, 0, 2)); res.status(200).send(req.body);})
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/monday/webhook/install', statusChanges);
