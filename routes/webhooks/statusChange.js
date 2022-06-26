@@ -8,9 +8,10 @@ const app = require('../../app');
 router.post('/changeStatus',  (req, res) => {
     // console.log(JSON.stringify(req.body, null, 2));
 
-    const data = JSON.stringify(req.body);
-    console.log('brook data', data)
-    console.log('brook data event', data.event)
+    const dataJsonString = JSON.stringify(req.body);
+    const dataJson = req.json();
+    console.log('brook data', dataJsonString)
+    console.log('brook data event', dataJson.event)
 
     // console.log('brook board: ', boardId)
     // console.log('brook itemId: ', itemId)
