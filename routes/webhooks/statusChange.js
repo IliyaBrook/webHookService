@@ -5,10 +5,10 @@ const app = require('../../app');
 
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
-router.post('/changeStatus', async (req, res) => {
+router.post('/changeStatus',  (req, res) => {
     console.log(JSON.stringify(req.body, null, 2));
 
-    const data = await req.json()
+    const data = req.json()
     console.log('response data: ', JSON.stringify(data, null, 2))
 
 
