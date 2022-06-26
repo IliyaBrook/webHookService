@@ -8,11 +8,6 @@ const queryItems = require('../../querys/itemsAndColumnValues');
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
 router.post('/changeStatus',  (req, res, next) => {
-    // console.log(JSON.stringify(req.body, null, 2));
-
-    const dataJsonString = JSON.stringify(req.body);
-    // const dataJson = req.json();
-    console.log('brook data', dataJsonString)
     const { boardId, groupId, pulseId: itemId } = req.body.event;
 
 
@@ -21,8 +16,8 @@ router.post('/changeStatus',  (req, res, next) => {
     console.log('brook itemId: ', itemId)
 
     fetch(queryItems(boardId, groupId, itemId))
-        .then(queryRes => {
-            const data = queryRes.json();
+        .then(async queryRes => {
+            const data = await queryRes.json();
             console.log('query response:', data)
         }).catch(queryError => console.log('queryError: ', queryError))
 
