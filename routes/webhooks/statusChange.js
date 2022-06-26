@@ -19,6 +19,10 @@ router.post('/changeStatus',  (req, res, next) => {
         .then(async queryRes => {
             const data = await queryRes.json();
             console.log('query response:', JSON.stringify(data, null, 2))
+            const itemData = data.data.boards[0].groups[0].items[0]
+            console.log('brook item data:', itemData);
+            const itemName = itemData.name;
+            console.log('brook item data name xx:', itemName);
         }).catch(queryError => console.log('queryError: ', queryError))
 
     //Register monday webhook
