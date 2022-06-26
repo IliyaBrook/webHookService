@@ -8,7 +8,7 @@ const app = require('../../app');
 router.post('/changeStatus',  (req, res) => {
     // console.log(JSON.stringify(req.body, null, 2));
 
-    const { boardId, pulseId: itemId, groupId } = JSON.stringify(req.body)?.event
+    const { event: { boardId, pulseId: itemId, groupId }  } = JSON.stringify(req.body);
 
     console.log('brook board: ', boardId)
     console.log('brook itemId: ', itemId)
