@@ -1,9 +1,9 @@
-module.exports = (boardId, groupId) => `
+module.exports = (boardId, groupId, itemId) => `
      query {
       boards(ids: ${boardId}) {
-        groups(ids: ${groupId}) {
+        groups(ids: "${groupId}") {
           id
-          items {
+          items(ids: ${itemId}) {
             id
             email
             name
