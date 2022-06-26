@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
     // res.send('respond with a resource');
     const request = await req;
     console.log('request from client:', JSON.stringify(request.body, null, 2))
-    return res.status(200).send(req.body);
+    return res.status(200).send(request.body);
 });
 
 module.exports = router;
