@@ -8,8 +8,11 @@ const app = require('../../app');
 router.post('/changeStatus',  (req, res) => {
     console.log(JSON.stringify(req.body, null, 2));
 
-    const data = req.json()
-    console.log('response data: ', JSON.stringify(data, null, 2))
+    const {boardId, pulseId: itemId, groupId } = req.json();
+
+    console.log('board: ', boardId)
+    console.log('itemId: ', itemId)
+    console.log('groupId: ', groupId)
 
 
     //Register monday webhook
