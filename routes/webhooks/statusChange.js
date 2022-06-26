@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const app = require('../../app');
+const fetch = require('../../utils/fetch');
+const queryItems = require('../../querys/itemsAndColumnValues');
 
 
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
@@ -17,6 +19,11 @@ router.post('/changeStatus',  (req, res) => {
     console.log('brook board: ', boardId)
     console.log('brook itemId: ', itemId)
     console.log('brook groupId: ', groupId)
+
+    fetch(queryItems(boardId, groupId, itemId))
+        .then(queryRes => {
+            console.log('query response:', queryRes)
+        }).catch(queryError => console.log('queryError: ', queryError))
 
 
     //Register monday webhook
