@@ -25,6 +25,7 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log('brook item data name xx:', itemName);
         }).catch(queryError => console.log('queryError: ', queryError))
 
+    res.post(res.status(200).send(req.body))
     //Register monday webhook
     // app.post("/", function(req, res) { console.log(JSON.stringify(req.body, 0, 2)); res.status(200).send(req.body);})
 });
