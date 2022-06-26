@@ -6,13 +6,13 @@ const app = require('../../app');
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
 router.post('/changeStatus',  (req, res) => {
-    console.log(JSON.stringify(req.body, null, 2));
+    // console.log(JSON.stringify(req.body, null, 2));
 
     const {boardId, pulseId: itemId, groupId } = req.json();
 
-    console.log('board: ', boardId)
-    console.log('itemId: ', itemId)
-    console.log('groupId: ', groupId)
+    console.log('brook board: ', boardId)
+    console.log('brook itemId: ', itemId)
+    console.log('brook groupId: ', groupId)
 
 
     //Register monday webhook
