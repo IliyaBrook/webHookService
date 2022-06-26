@@ -20,10 +20,10 @@
                   },
                   {
                     "id": "person",
-                    "text": "",
+                    "text": "iliyabrook1987@gmail.com",
                     "title": "איש מכירות",
                     "type": "multiple-person",
-                    "value": null
+                    "value": "{\"changed_at\":\"2022-06-26T22:25:24.011Z\",\"personsAndTeams\":[{\"id\":31488366,\"kind\":\"person\"}]}"
                   },
                   {
                     "id": "owner9",
