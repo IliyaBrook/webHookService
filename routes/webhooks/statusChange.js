@@ -11,11 +11,12 @@ router.post('/changeStatus',  (req, res) => {
     const dataJsonString = JSON.stringify(req.body);
     // const dataJson = req.json();
     console.log('brook data', dataJsonString)
-    console.log('brook data event', req.body.event)
+    const { boardId, groupId, pulseId: itemId } = req.body.event;
 
-    // console.log('brook board: ', boardId)
-    // console.log('brook itemId: ', itemId)
-    // console.log('brook groupId: ', groupId)
+
+    console.log('brook board: ', boardId)
+    console.log('brook itemId: ', itemId)
+    console.log('brook groupId: ', groupId)
 
 
     //Register monday webhook
