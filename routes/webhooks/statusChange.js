@@ -45,7 +45,7 @@ router.post('/changeStatus',  (req, res, next) => {
                     case 'text':
                         return phone = column.text;
                     case 'text6':
-                        return email = column.email;
+                        return email = column.text;
                     case 'text64':
                         return leadComeFrom = column.text;
                     case "text01":
