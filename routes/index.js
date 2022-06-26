@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const app = require('../app')
+const app = require('../app');
 
 /* GET home page. */
 app.post('/', async (req, res, next) => {
@@ -10,5 +10,3 @@ app.post('/', async (req, res, next) => {
 
 module.exports = router;
 
-
-app.post("/", function(req, res) { })
