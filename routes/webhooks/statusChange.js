@@ -22,7 +22,8 @@ router.post('/changeStatus',  (req, res, next) => {
 
     fetch(queryItems(boardId, groupId, itemId))
         .then(queryRes => {
-            console.log('query response:', queryRes)
+            const data = queryRes.json();
+            console.log('query response:', data)
         }).catch(queryError => console.log('queryError: ', queryError))
 
     //Register monday webhook
