@@ -8,7 +8,7 @@ const queryItems = require('../../querys/itemsAndColumnValues');
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
 router.post('/changeStatus',  (req, res, next) => {
-    const { boardId, groupId, pulseId: itemId } = req.body.event;
+    const { boardId, groupId, pulseId: itemId } = req.body?.event;
 
 
     console.log('brook board: ', boardId)
