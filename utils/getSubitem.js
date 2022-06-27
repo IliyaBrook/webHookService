@@ -7,7 +7,7 @@ module.exports = async (itemId) => {
     console.log('brook boards:', response.data?.boards)
     console.log('brook columnValues:', columnValues)
 
-    const subItemValue = columnValues.filter(value => value.type === "subtasks")
+    const subItemValue = columnValues[0].filter(value => value.type === "subtasks")
     const valueProd = JSON.parse(subItemValue[0].value ).linkedPulseIds[0].linkedPulseId;
     const valueDev = JSON.parse(subItemValue[1].value ).linkedPulseIds[0].linkedPulseId;
     return {valueProd, valueDev}
