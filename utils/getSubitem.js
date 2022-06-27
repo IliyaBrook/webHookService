@@ -3,24 +3,10 @@ const queryColumnValues = require('../querys/getItemColumnValues');
 const getSubItem = require('../querys/getSubItem');
 
 module.exports = async (itemId, boardId) => {
-    // const data = await useFetch(queryColumnValues(itemId))
-    // const columnValues = data.data?.items[0].column_values;
-    // const subItemValue = columnValues.filter(value => value.type === "subtasks")
 
-    // console.log('brook subItemValue:', subItemValue)
+    const data = await useFetch(getSubItem(boardId, itemId))
 
-    // const courseProdId = JSON.parse(subItemValue[0].value).linkedPulseIds[0].linkedPulseId;
-    // const courseDevId = JSON.parse(subItemValue[0].value).linkedPulseIds[1].linkedPulseId;
-
-    // const subItemDataProd = await useFetch(queryColumnValues(courseProdId))
-
-    // const subItemDataDev = await useFetch(queryColumnValues(courseProdId))
-
-    // const subitemColumnValues = subItemDataDev.data?.items[0].column_values;
-
-    const subItemColumnValues2 = await useFetch(getSubItem(boardId, itemId))
-
-    console.log('brook subItemColumnValues2:', JSON.stringify(subItemColumnValues2, null, 2))
+    console.log('brook subItemColumnValues2:', JSON.stringify(data, null, 2))
 
     const devSubitemIds = {
         owner:'',
@@ -32,12 +18,7 @@ module.exports = async (itemId, boardId) => {
         address:'',
     }
 
-    subitemColumnValues.forEach(value => {
+    const subItemColumnValues =  data.boards[0].items[0].subitems[0].column_values;
 
-    })
-
-    console.log('brook subitem Dev:', JSON.stringify(subItemDataDev, null, 2))
-
-
-    // return {courseProdId, courseDevId}
+    console.log('brook check get column values:', subItemColumnValues)
 }
