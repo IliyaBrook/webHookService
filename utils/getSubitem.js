@@ -6,9 +6,7 @@ module.exports = async (itemId, boardId) => {
 
     const data = await useFetch(getSubItem(boardId, itemId))
 
-    console.log('brook subItemColumnValues2:', JSON.stringify(data, null, 2))
-
-    const devSubitemIds = {
+    const subItemKeys = {
         owner:'',
         date:'',
         lead:'',
@@ -16,13 +14,34 @@ module.exports = async (itemId, boardId) => {
         saleAmount:'',
         leadComeFrom:'',
         address:'',
+        phone:'',
+        name:'',
+        email:''
     }
 
-    console.log('brook check data 1:', JSON.stringify(data.data.boards[0]))
-    console.log('brook check data 2:', JSON.stringify(data.data.boards[0].items[0]))
-    console.log('brook check data 3:', JSON.stringify(data.data.boards[0].items[0].subitems[0].column_values, null,2))
 
     const subItemColumnValues =  data.data.boards[0].items[0].subitems[0].column_values;
 
-    console.log('brook check get column values:', JSON.stringify(subItemColumnValues, null, 2))
+    console.log('brook check subitem name:', JSON.stringify(data.data.boards[0].items[0].subitems[0], null, 2))
+
+    subItemColumnValues.forEach(value => {
+        if (value?.title === "Date") {
+            subItemKeys.date = value.id
+        } else if (value?.title === "lead") {
+            subItemKeys.lead = value.id
+        } else if (value?.title === "מספר ליד") {
+            subItemKeys.leadId = value.id
+        } else if (value?.title ===  "עסקאות") {
+            subItemKeys.saleAmount = value.id
+        } else if (value?.title === "מקור הליד") {
+            subItemKeys.leadComeFrom = value.id
+        } else if (value?.title === "אימייל") {
+            subItemKeys.email = value.id
+        } else if (value?.title === "כתובת") {
+            subItemKeys.address = value.id
+        } else if (value?.title === "טלפון") {
+            subItemKeys.phone = value.id
+        }
+        console.log('brook check object keys:', JSON.stringify(subItemKeys, null, 2))
+    })
 }

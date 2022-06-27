@@ -66,6 +66,8 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log("brook courseId:", courseItemId)
             console.log("brook itemName:",itemName)
 
+
+
             getSubItems(courseItemId, coursesDevBoardId )
                 .then(getSubItemRes => {
                     console.log('brook getSubItemRes', getSubItemRes)
