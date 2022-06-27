@@ -61,14 +61,9 @@ router.post('/changeStatus',  async (req, res, next) => {
                 .then(createItemRes => console.log('create item res:', createItemRes))
         })
         .catch(queryError => console.log('queryError: ', queryError))
-
-    app.post("/", function(req, res) {
-        res.status(200).send(req.body);
-    })
 });
 
-
-
+//respond to monday api
 
 module.exports = router;
 
