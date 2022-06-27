@@ -20,11 +20,11 @@ module.exports = async (itemId) => {
     // const valueProd = JSON.parse(subItemValue[0].value ).linkedPulseIds[0].linkedPulseId;
     // const valueDev = JSON.parse(subItemValue[0].value ).linkedPulseIds[0].linkedPulseId;
 
-    const valueProd = JSON.parse(subItemValue[0].value);
-    const valueDev = JSON.parse(subItemValue[0].value);
+    const valueProd = JSON.parse(subItemValue[0].value).linkedPulseIds[0].linkedPulseId;
+    const valueDev = JSON.parse(subItemValue[0].value).linkedPulseIds[1].linkedPulseId;
 
     console.log('brook valueProd', valueProd)
     console.log('brook valueDev', valueDev)
 
-    // return {valueProd, valueDev}
+    return {valueProd, valueDev}
 }
