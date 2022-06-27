@@ -12,8 +12,6 @@ const createSubItem = (require('../../querys/createSubitem'))
 
 router.post('/changeStatus',  async (req, res, next) => {
     const { boardId, groupId, pulseId: itemId } = req.body?.event;
-    // console.log('brook test main query boardId:', boardId)
-    // console.log('brook test main query itemId:', itemId)
     await fetch(queryItems(boardId, groupId, itemId))
         .then(async queryRes => {
             const itemData = queryRes.data.boards?.[0].groups?.[0].items?.[0];
@@ -62,7 +60,7 @@ router.post('/changeStatus',  async (req, res, next) => {
         })
         .catch(queryError => console.log('queryError: ', queryError))
 
-    // res.post(res.status(200).send(req.body))
+    res.post(res.status(200).send(req.body))
 });
 
 
