@@ -11,7 +11,7 @@ module.exports = async (itemId) => {
 
     console.log('brook columnValues:', columnValues)
     const subItemValue = columnValues[0].filter(value => value.type === "subtasks")
-    const valueProd = JSON.parse(subItemValue[0].value ).linkedPulseIds[0].linkedPulseId;
-    const valueDev = JSON.parse(subItemValue[1].value ).linkedPulseIds[0].linkedPulseId;
+    const valueProd = JSON.parse(subItemValue.value).linkedPulseIds[0].linkedPulseId;
+    const valueDev = JSON.parse(subItemValue.value).linkedPulseIds[1].linkedPulseId;
     return {valueProd, valueDev}
 }
