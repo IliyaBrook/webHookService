@@ -16,9 +16,9 @@ router.post('/changeStatus',  (req, res, next) => {
     // console.log('brook itemId: ', itemId)
 
     fetch(queryItems(boardId, groupId, itemId))
-        .then(async queryRes => {
-            const data = await queryRes.json();
-            const itemData = data.data.boards[0].groups[0].items[0]
+        .then(queryRes => {
+            console.log('brook fetch(queryItems( first:', queryRes)
+            const itemData = queryRes.data.boards[0].groups[0].items[0]
 
             // console.log('brook item data:', itemData);
             // console.log('query response:', JSON.stringify(data, null, 2))
@@ -70,7 +70,7 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log("brook courseId:", courseItemId)
             console.log("brook itemName:",itemName)
 
-            const subItemId = await getSubItems(courseItemId)
+            const subItemId = getSubItems(courseItemId)
             console.log('brook subItemId hook:', subItemId)
         })
         .catch(queryError => console.log('queryError: ', queryError))
