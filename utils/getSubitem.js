@@ -11,7 +11,23 @@ module.exports = async (itemId) => {
 
     // const subItemDataProd = await useFetch(queryColumnValues(courseProdId))
 
-    const subItemDataDev = await useFetch(queryColumnValues(courseDevId))
+    const subItemDataDev = await useFetch(queryColumnValues(courseProdId))
+
+    const subitemColumnValues = subItemDataDev.data?.items[0].column_values;
+
+    const devSubitemIds = {
+        owner:'',
+        date:'',
+        lead:'',
+        leadId:'',
+        saleAmount:'',
+        leadComeFrom:'',
+        address:'',
+    }
+
+    subitemColumnValues.forEach(value => {
+
+    })
 
     console.log('brook subitem Dev:', JSON.stringify(subItemDataDev, null, 2))
 
