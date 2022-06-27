@@ -3,9 +3,7 @@ const queryColumnValues = require('../querys/getItemColumnValues');
 const getSubItem = require('../querys/getSubItem');
 
 module.exports = async (itemId, boardId) => {
-
     const data = await useFetch(getSubItem(boardId, itemId))
-
     const subItemKeys = {
         owner:'',
         date:'',
@@ -18,11 +16,13 @@ module.exports = async (itemId, boardId) => {
         name:'',
         email:''
     }
-
-
     const subItemColumnValues =  data.data.boards[0].items[0].subitems[0].column_values;
 
-    console.log('brook check subitem name:', JSON.stringify(data.data.boards[0].items[0].subitems[0], null, 2))
+    const subitem = JSON.stringify(data.data.boards[0].items[0].subitems[0]);
+    const subitemObj = {
+        id: subitem.id,
+        name: subitem.name
+    }
 
     subItemColumnValues.forEach(value => {
         if (value?.title === "Date") {
@@ -42,6 +42,6 @@ module.exports = async (itemId, boardId) => {
         } else if (value?.title === "טלפון") {
             subItemKeys.phone = value.id
         }
-        console.log('brook check object keys:', JSON.stringify(subItemKeys, null, 2))
     })
+    console.log('brook check object keys:', JSON.stringify(subItemKeys, null, 2))
 }
