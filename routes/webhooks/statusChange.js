@@ -16,7 +16,7 @@ router.post('/changeStatus',  (req, res, next) => {
     console.log('brook test main query itemId:', itemId)
     fetch(queryItems(boardId, groupId, itemId))
         .then(async queryRes => {
-            const itemData = queryRes.data.boards[0].groups[0].items[0]
+            const itemData = queryRes.data.boards?.[0].groups?.[0].items?.[0];
             const itemName = itemData.name;
 
 
@@ -51,7 +51,7 @@ router.post('/changeStatus',  (req, res, next) => {
                     case "text_196":
                         return objectValues.lead = column.text;
                     case "connect_boards":
-                       return courseItemId = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
+                       return courseItemId = JSON.parse(column.value).linkedPulseIds?.[0].linkedPulseId;
                 }
             })
 
