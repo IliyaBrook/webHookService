@@ -18,7 +18,9 @@ module.exports = async (itemId, boardId) => {
     const subItemColumnValues =  data.data.boards[0].items[0].subitems[0].column_values;
 
     subItemColumnValues.forEach(value => {
-        if (value?.title === "Date") {
+        if (value?.title === "Owner") {
+            subItemKeys.owner = value.id
+        } else if (value?.title === "Date") {
             subItemKeys.date = value.id
         } else if (value?.title === "lead") {
             subItemKeys.lead = value.id
@@ -34,8 +36,6 @@ module.exports = async (itemId, boardId) => {
             subItemKeys.address = value.id
         } else if (value?.title === "טלפון") {
             subItemKeys.phone = value.id
-        } else if (value?.title === "Owner") {
-            subItemKeys.owner = value.id
         }
     })
     console.log('brook check object keys:', JSON.stringify(subItemKeys, null, 2))

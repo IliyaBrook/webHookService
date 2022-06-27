@@ -20,7 +20,7 @@ router.post('/changeStatus',  (req, res, next) => {
             let salesman = {};
 
             let saleAmount, dateOfSigning,
-                date, address,
+                date, address, lead,
                 phone, email, leadComeFrom,
                 leadId, courseItemId, owner;
 
@@ -46,6 +46,8 @@ router.post('/changeStatus',  (req, res, next) => {
                         return leadId = column.text;
                     case "owner9":
                         return owner = column.text;
+                    case "text_196":
+                        return lead = column.text;
                     case "connect_boards":
                        return courseItemId = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
                 }
@@ -58,24 +60,25 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log('all items values', JSON.stringify(itemData.column_values, null, 2))
             console.log('///all///')
             console.log('///end///')
-            console.log("brook saleAmount:",saleAmount)
-            console.log("brook dateOfSigning:",dateOfSigning)
+            console.log("brook owner:", owner)
             console.log("brook leadDate:",date)
+            console.log("brook lead:",lead)
+            console.log("brook leadId:",leadId)
+            console.log("brook saleAmount:",saleAmount)
+            console.log("brook leadComeFrom:",leadComeFrom)
             console.log("brook address:",address)
             console.log("brook phone:",phone)
             console.log("brook email:",email)
-            console.log("brook leadComeFrom:",leadComeFrom)
-            console.log("brook leadId:",leadId)
+
+
             console.log("brook courseId:", courseItemId)
             console.log("brook itemName:",itemName)
-            console.log("brook owner:", owner)
-
 
 
          const subItemKeysObj = await getSubItems(courseItemId, coursesDevBoardId )
             console.log('brook sub item keys 555', subItemKeysObj)
 
-            const objectValues = { owner, date, leadId, saleAmount, leadComeFrom, address, phone, email }
+            const objectValues = { owner, date, lead, leadId, saleAmount, leadComeFrom, address, phone, email }
             const values = Object.values(objectValues)
             const keys = Object.values(subItemKeysObj)
             const objNewSubItem = {}
