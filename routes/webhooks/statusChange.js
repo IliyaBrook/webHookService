@@ -3,6 +3,7 @@ const router = express.Router();
 const app = require('../../app');
 const fetch = require('../../utils/fetch');
 const queryItems = require('../../querys/itemsAndColumnValues');
+const getSubItems = require('../../querys/createSubitem')
 
 
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
@@ -10,17 +11,17 @@ const queryItems = require('../../querys/itemsAndColumnValues');
 router.post('/changeStatus',  (req, res, next) => {
     const { boardId, groupId, pulseId: itemId } = req.body?.event;
 
-
-    console.log('brook board: ', boardId)
-    console.log('brook groupId: ', groupId)
-    console.log('brook itemId: ', itemId)
+    // console.log('brook board: ', boardId)
+    // console.log('brook groupId: ', groupId)
+    // console.log('brook itemId: ', itemId)
 
     fetch(queryItems(boardId, groupId, itemId))
         .then(async queryRes => {
             const data = await queryRes.json();
-            console.log('query response:', JSON.stringify(data, null, 2))
             const itemData = data.data.boards[0].groups[0].items[0]
-            console.log('brook item data:', itemData);
+
+            // console.log('brook item data:', itemData);
+            // console.log('query response:', JSON.stringify(data, null, 2))
 
             const itemName = itemData.name;
             let salesman = {};
@@ -28,7 +29,7 @@ router.post('/changeStatus',  (req, res, next) => {
             let saleAmount, dateOfSigning,
                 leadDate, address,
                 phone, email, leadComeFrom,
-                leadNumber, courseId;
+                leadNumber, courseItemId;
 
             itemData.column_values.forEach(column => {
                 switch (column.id) {
@@ -51,7 +52,7 @@ router.post('/changeStatus',  (req, res, next) => {
                     case "text01":
                         return leadNumber = column.text;
                     case "connect_boards":
-                       return courseId = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
+                       return courseItemId = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
                 }
             })
 
@@ -63,10 +64,14 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log("brook email:",email)
             console.log("brook leadComeFrom:",leadComeFrom)
             console.log("brook leadNumber:",leadNumber)
-            console.log("brook courseId:",courseId)
+            console.log("brook courseId:",courseItemId)
+            console.log("brook itemName:",itemName)
 
-        }).catch(queryError => console.log('queryError: ', queryError))
-
+        }).then( () => {
+            const subItemId = getSubItems('2858433186')
+            console.log('brook subItemId hook:', subItemId)
+    })
+        .catch(queryError => console.log('queryError: ', queryError))
     res.post(res.status(200).send(req.body))
 });
 
