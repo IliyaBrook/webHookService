@@ -9,10 +9,10 @@ module.exports = async (itemId) => {
             console.log('brook response:', response)
             return response;
         })
-    console.log('brook response data 11111:', data)
+    console.log('brook response data 11111:', JSON.stringify(data, null, 2))
 
     const data2 = await useFetch(queryColumnValues(itemId))
-    console.log('brook response data 2222:', data2)
+    console.log('brook response data 2222:', JSON.stringify(data2, null, 2))
 
     // const columnValues = data.data?.boards[0].items.column_values;
     //
