@@ -20,9 +20,9 @@ router.post('/changeStatus',  (req, res, next) => {
             let salesman = {};
 
             let saleAmount, dateOfSigning,
-                leadDate, address,
+                date, address,
                 phone, email, leadComeFrom,
-                leadNumber, courseItemId;
+                leadId, courseItem, owner;
 
             itemData.column_values.forEach(column => {
                 switch (column.id) {
@@ -33,7 +33,7 @@ router.post('/changeStatus',  (req, res, next) => {
                     case '___________________8':
                         return dateOfSigning = column.text;
                     case 'date1':
-                        return leadDate = column.text
+                        return date = column.text
                     case 'location6':
                         return address = column.text;
                     case 'text':
@@ -43,9 +43,11 @@ router.post('/changeStatus',  (req, res, next) => {
                     case 'text64':
                         return leadComeFrom = column.text;
                     case "text01":
-                        return leadNumber = column.text;
+                        return leadId = column.text;
+                    case "owner9":
+                        return owner = column.text;
                     case "connect_boards":
-                       return courseItemId = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
+                       return courseItem = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
                 }
             })
 
@@ -58,19 +60,29 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log('///end///')
             console.log("brook saleAmount:",saleAmount)
             console.log("brook dateOfSigning:",dateOfSigning)
-            console.log("brook leadDate:",leadDate)
+            console.log("brook leadDate:",date)
             console.log("brook address:",address)
             console.log("brook phone:",phone)
             console.log("brook email:",email)
             console.log("brook leadComeFrom:",leadComeFrom)
-            console.log("brook leadNumber:",leadNumber)
-            console.log("brook courseId:", courseItemId)
+            console.log("brook leadId:",leadId)
+            console.log("brook courseId:", courseItem)
             console.log("brook itemName:",itemName)
+            console.log("brook owner:", owner)
 
 
 
          const subItemKeysObj = await getSubItems(courseItemId, coursesDevBoardId )
             console.log('brook sub item keys 555', subItemKeysObj)
+
+            const objectValues = { owner, date, leadId, saleAmount, leadComeFrom, address, phone }
+            const values = Object.values(objectValues)
+            const keys = Object.values(subItemKeysObj)
+            const objNewSubItem = {}
+            keys.forEach((key, idx) => {
+                return objNewSubItem[key] = values[idx]
+            })
+            console.log('object new sub Item:', objNewSubItem )
         })
         .catch(queryError => console.log('queryError: ', queryError))
     res.post(res.status(200).send(req.body))
