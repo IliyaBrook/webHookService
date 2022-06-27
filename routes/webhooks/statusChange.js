@@ -3,7 +3,7 @@ const router = express.Router();
 const app = require('../../app');
 const fetch = require('../../utils/fetch');
 const queryItems = require('../../querys/itemsAndColumnValues');
-const getSubItemIds = require('../../utils/getSubItemIds');
+const getSubItems = require('../../utils/getSubitem');
 
 
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
@@ -61,7 +61,7 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log("brook courseId:", courseItemId)
             console.log("brook itemName:",itemName)
 
-            getSubItemIds(boardId ,courseItemId)
+            getSubItems(courseItemId, boardId )
                 .then(getSubItemRes => {
                     console.log('brook getSubItemRes', getSubItemRes)
                 })
