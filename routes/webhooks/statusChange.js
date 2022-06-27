@@ -4,6 +4,7 @@ const app = require('../../app');
 const fetch = require('../../utils/fetch');
 const queryItems = require('../../querys/itemsAndColumnValues');
 const getSubItems = require('../../utils/getSubitem');
+const createSubItem = (require('../../querys/createSubitem'))
 
 
 
@@ -85,6 +86,9 @@ router.post('/changeStatus',  (req, res, next) => {
             keys.forEach((key, idx) => {
                 return objNewSubItem[key] = values[idx]
             })
+
+            fetch(createSubItem(itemName, courseItemId, objNewSubItem))
+                .then(createItemRes => console.log('create item res:', createItemRes))
             console.log('object new sub Item:', objNewSubItem )
         })
         .catch(queryError => console.log('queryError: ', queryError))
