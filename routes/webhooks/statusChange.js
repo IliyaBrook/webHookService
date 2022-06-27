@@ -14,6 +14,7 @@ router.post('/changeStatus',  (req, res, next) => {
     const { boardId, groupId, pulseId: itemId } = req.body?.event;
     console.log('brook test main query boardId:', boardId)
     console.log('brook test main query itemId:', itemId)
+    res.post(res.status(200).send(req.body))
     fetch(queryItems(boardId, groupId, itemId))
         .then(async queryRes => {
             const itemData = queryRes.data.boards[0].groups[0].items[0]
@@ -75,7 +76,6 @@ router.post('/changeStatus',  (req, res, next) => {
                 .then(createItemRes => console.log('create item res:', createItemRes))
         })
         .catch(queryError => console.log('queryError: ', queryError))
-    res.post(res.status(200).send(req.body))
 });
 
 
