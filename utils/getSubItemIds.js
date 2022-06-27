@@ -14,9 +14,11 @@ module.exports = async (boardId, itemId) => {
 
     const subItemDataDev = await useFetch(queryColumnValues(getSubItemIds(boardId, itemId)))
 
-    const subitemColumnValues = subItemDataDev.data?.items[0].column_values;
-
     console.log('brook sibitems:', subItemDataDev)
+
+    // const subitemColumnValues = subItemDataDev.data?.items[0].column_values;
+
+    // console.log('brook sibitems:', subItemDataDev)
 
     const devSubitemIds = {
         owner:'',
