@@ -17,12 +17,7 @@ router.post('/changeStatus',  (req, res, next) => {
 
     fetch(queryItems(boardId, groupId, itemId))
         .then(queryRes => {
-            console.log('brook fetch(queryItems( first:', queryRes)
             const itemData = queryRes.data.boards[0].groups[0].items[0]
-
-            // console.log('brook item data:', itemData);
-            // console.log('query response:', JSON.stringify(data, null, 2))
-
             const itemName = itemData.name;
             let salesman = {};
 
@@ -70,8 +65,10 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log("brook courseId:", courseItemId)
             console.log("brook itemName:",itemName)
 
-            const subItemId = getSubItems(courseItemId)
-            console.log('brook subItemId hook:', subItemId)
+            getSubItems(courseItemId)
+                .then(getSubItemRes => {
+                    console.log('brook getSubItemRes', getSubItemRes)
+                })
         })
         .catch(queryError => console.log('queryError: ', queryError))
     res.post(res.status(200).send(req.body))

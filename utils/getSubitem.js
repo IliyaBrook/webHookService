@@ -2,14 +2,17 @@ const useFetch = require('./fetch');
 const queryColumnValues = require('../querys/getItemColumnValues');
 
 module.exports = async (itemId) => {
+
+
     const data = await useFetch(queryColumnValues(itemId))
         .then(async (response) => {
-            const data = await response.json()
-            console.log('brook response:', data)
+            console.log('brook response:', response)
             return data;
         })
 
-    console.log('brook response data 2:', data)
+
+    const data2 = await useFetch(queryColumnValues(itemId))
+    console.log('brook response data 2222:', data2)
 
     const columnValues = data.data?.boards[0].items.column_values;
 
