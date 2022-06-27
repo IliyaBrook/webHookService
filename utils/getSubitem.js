@@ -7,7 +7,7 @@ module.exports = async (itemId) => {
     const data = await useFetch(queryColumnValues(itemId))
     console.log('brook response data:', JSON.stringify(data, null, 2))
     console.log('////end//// await useFetch(queryColumnValues(itemId))')
-    const columnValues = data.data?.boards[0].items.column_values;
+    const columnValues = data.data?.items[0].column_values;
 
     console.log('brook columnValues:', columnValues)
     const subItemValue = columnValues.filter(value => value.type === "subtasks")
