@@ -3,7 +3,7 @@ const router = express.Router();
 const app = require('../../app');
 const fetch = require('../../utils/fetch');
 const queryItems = require('../../querys/itemsAndColumnValues');
-const getSubItems = require('../../querys/createSubitem')
+const getSubItems = require('../../utils/getSubitem');
 
 
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
