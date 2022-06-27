@@ -12,8 +12,10 @@ module.exports = async (itemId) => {
     console.log('brook columnValues:', columnValues)
     const subItemValue = columnValues.filter(value => {
         console.log('brook filter each:', value)
-        // return value.type === "subtasks"
+        return value.type === "subtasks"
     })
+    console.log('brook subItemValue result:', subItemValue)
+    console.log('brook subItemValue result [0]:', subItemValue[0])
     // const valueProd = JSON.parse(subItemValue[0].value ).linkedPulseIds[0].linkedPulseId;
     // const valueDev = JSON.parse(subItemValue[1].value ).linkedPulseIds[0].linkedPulseId;
     // return {valueProd, valueDev}
