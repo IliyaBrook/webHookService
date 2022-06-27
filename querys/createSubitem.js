@@ -6,15 +6,15 @@ module.exports = ( name, parentId, object ) => {
       parent_item_id: ${parentId}, 
       item_name: ${name}, 
       column_values: \"{
-      \\\"owner\\\":\\\"${object?.owner || ''}\\\",
-      \\\"date\\\":\\\"${object?.date  || ''}\\\",
-      \\\"text_14\\\":\\\"${object?.leadId  || ''}\\\",
-      \\\"text\\\":\\\"${object?.leadComeFrom  || ''}\\\",
-      \\\"text4\\\":\\\"${object?.address  || ''}\\\",
-      \\\"text_17\\\":\\\"${object?.phone  || ''}\\\",
-      \\\"text_2\\\":\\\"${object?.email  || ''}\\\",
-      \\\"text_196\\\":\\\"${object?.salesMan  || ''}\\\",
-      \\\"______\\\":\\\"${object?.saleAmount  || ''}\\\"
+      \\\"owner\\\":\\\"${object?.owner || 'no value'}\\\",
+      \\\"date\\\":\\\"${object?.date || 'no value'}\\\",
+      \\\"text_14\\\":\\\"${object?.leadId  || 'no value'}\\\",
+      \\\"text\\\":\\\"${object?.leadComeFrom  || 'no value'}\\\",
+      \\\"text4\\\":\\\"${object?.address  || 'no value'}\\\",
+      \\\"text_17\\\":\\\"${object?.phone  || 'no value'}\\\",
+      \\\"text_2\\\":\\\"${object?.email  || 'no value'}\\\",
+      \\\"text_196\\\":\\\"${object?.salesMan  || 'no value'}\\\",
+      \\\"______\\\":\\\"${object?.saleAmount  || 'no value'}\\\"
       }"
         ){
           column_values{
