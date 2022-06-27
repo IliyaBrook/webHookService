@@ -58,9 +58,11 @@ router.post('/changeStatus',  async (req, res, next) => {
                         case "text3":
                             return objectValues.salesMan = column.text;
                         case "connect_boards":
+                            console.log('brook courseItemId:', column.value)
                             return courseItemId = JSON.parse(column.value).linkedPulseIds?.[0].linkedPulseId;
                     }
                 })
+
                 await fetch(createSubItem(itemName, courseItemId, objectValues))
                     .then(createItemRes => {
                         if (Object.keys(createItemRes)?.includes('errors')){
