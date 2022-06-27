@@ -72,7 +72,7 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log('brook sub item keys 555', subItemKeysObj)
 
 
-            fetch(createSubItem(itemName, courseItemId, objectValues))
+         await fetch(createSubItem(itemName, courseItemId, objectValues))
                 .then(createItemRes => console.log('create item res:', createItemRes))
         })
         .catch(queryError => console.log('queryError: ', queryError))
