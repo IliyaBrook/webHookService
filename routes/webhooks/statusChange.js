@@ -47,9 +47,11 @@ router.post('/changeStatus',  async (req, res, next) => {
                     case "text6":
                         return objectValues.email = column.text;
                     case "text64":
-                        return objectValues.leadId = column.leadComeFrom;
+                        return objectValues.leadComeFrom = column.text;
                     case "text01":
                         return objectValues.leadId = column.text;
+                    case "text3":
+                        return objectValues.salesMan = column.text;
                     case "connect_boards":
                        return courseItemId = JSON.parse(column.value).linkedPulseIds?.[0].linkedPulseId;
                 }

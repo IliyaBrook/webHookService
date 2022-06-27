@@ -37,7 +37,6 @@ module.exports = async (itemId, boardId) => {
             subItemKeys.phone = value.id
         }
     })
-    // console.log('brook check object keys:', JSON.stringify(subItemKeys, null, 2))
 
     return subItemKeys
 }
