@@ -65,10 +65,10 @@ router.post('/changeStatus',  async (req, res, next) => {
 
                 await fetch(createSubItem(itemName, courseItemId, objectValues))
                     .then(createItemRes => {
-                        if (Object.keys(createItemRes)?.includes('errors')){
-                            console.log('create item error', createItemRes.errors)
-                            errors = createItemRes.errors;
-                        }
+                        // if (Object.keys(createItemRes)?.includes('errors')){
+                        //     console.log('create item error', createItemRes.errors)
+                        //     errors = createItemRes.errors;
+                        // }
                         console.log('create item res:', createItemRes)
                     })
             })
