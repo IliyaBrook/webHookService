@@ -7,14 +7,16 @@ module.exports = async (itemId, boardId) => {
     const columnValues = data.data?.items[0].column_values;
     const subItemValue = columnValues.filter(value => value.type === "subtasks")
 
-    const courseProdId = JSON.parse(subItemValue[0].value).linkedPulseIds[0].linkedPulseId;
-    const courseDevId = JSON.parse(subItemValue[0].value).linkedPulseIds[1].linkedPulseId;
+    console.log('brook subItemValue:', subItemValue)
+
+    // const courseProdId = JSON.parse(subItemValue[0].value).linkedPulseIds[0].linkedPulseId;
+    // const courseDevId = JSON.parse(subItemValue[0].value).linkedPulseIds[1].linkedPulseId;
 
     // const subItemDataProd = await useFetch(queryColumnValues(courseProdId))
 
-    const subItemDataDev = await useFetch(queryColumnValues(courseProdId))
+    // const subItemDataDev = await useFetch(queryColumnValues(courseProdId))
 
-    const subitemColumnValues = subItemDataDev.data?.items[0].column_values;
+    // const subitemColumnValues = subItemDataDev.data?.items[0].column_values;
 
     const subItemColumnValues2 = await useFetch(getSubItem(boardId, itemId))
 
