@@ -2,7 +2,7 @@ const useFetch = require('./fetch');
 const queryColumnValues = require('../querys/getItemColumnValues');
 const getSubItemIds = require('../querys/getSubItem');
 
-module.exports = async (boardId, itemId) => {
+module.exports = async ( itemId, boardId ) => {
     const data = await useFetch(queryColumnValues(itemId))
     const columnValues = data.data?.items[0].column_values;
     const subItemValue = columnValues.filter(value => value.type === "subtasks")
