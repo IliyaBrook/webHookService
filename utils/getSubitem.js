@@ -13,7 +13,7 @@ module.exports = async (itemId) => {
 
     const subItemDataDev = await useFetch(queryColumnValues(courseDevId))
 
-    console.log('brook subitem Dev:', subItemDataDev)
+    console.log('brook subitem Dev:', JSON.stringify(subItemDataDev, null, 2))
 
 
     // return {courseProdId, courseDevId}
