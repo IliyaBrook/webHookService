@@ -11,7 +11,7 @@ const deleteItem = (require('../../querys/itemDelete'))
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
 router.post('/changeStatus',  async (req, res, next) => {
-    let errors = '';
+    let errors = null;
     let itemIdToRem;
     try {
         const { boardId, groupId, pulseId: itemId } = req.body?.event;
@@ -62,7 +62,13 @@ router.post('/changeStatus',  async (req, res, next) => {
                     }
                 })
                 await fetch(createSubItem(itemName, courseItemId, objectValues))
-                    .then(createItemRes => console.log('create item res:', createItemRes))
+                    .then(createItemRes => {
+                        if (Object.keys(createItemRes)?.includes('errors')){
+                            console.log('create item error', createItemRes.errors)
+                            errors = createItemRes.errors;
+                        }
+                        console.log('create item res:', createItemRes)
+                    })
             })
     }catch (error) {
         console.log(error)
