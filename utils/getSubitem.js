@@ -2,11 +2,16 @@ const useFetch = require('./fetch');
 const queryColumnValues = require('../querys/getItemColumnValues');
 
 module.exports = async (itemId) => {
-    const response = await useFetch(queryColumnValues(itemId))
-    const data = await response.json()
-    console.log('brook response:', data)
+    const data = await useFetch(queryColumnValues(itemId))
+        .then(async (response) => {
+            const data = await response.json()
+            console.log('brook response:', data)
+            return data;
+        })
 
-    const columnValues = response.data?.boards[0].items.column_values;
+    console.log('brook response data 2:', data)
+
+    const columnValues = data.data?.boards[0].items.column_values;
 
     console.log('brook columnValues:', columnValues)
     const subItemValue = columnValues[0].filter(value => value.type === "subtasks")
