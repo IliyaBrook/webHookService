@@ -3,7 +3,6 @@ const router = express.Router();
 const app = require('../../app');
 const fetch = require('../../utils/fetch');
 const queryItems = require('../../querys/itemsAndColumnValues');
-const getSubItems = require('../../utils/getSubitem');
 const createSubItem = (require('../../querys/createSubitem'))
 
 
@@ -21,7 +20,6 @@ router.post('/changeStatus',  async (req, res, next) => {
             const objectValues = {
                 owner: '',
                 date: '',
-                lead: '',
                 leadId: '',
                 saleAmount: '',
                 leadComeFrom: '',
@@ -37,7 +35,7 @@ router.post('/changeStatus',  async (req, res, next) => {
                 console.log('brook column :', column)
                 switch (column.id) {
                     case 'owner9':
-                        return objectValues.salesMan = column.text;
+                        return objectValues.owner = column.text;
                     case 'numbers':
                         return objectValues.saleAmount = column.text;
                     case '___________________8':
@@ -48,6 +46,8 @@ router.post('/changeStatus',  async (req, res, next) => {
                         return objectValues.phone = column.text;
                     case "text6":
                         return objectValues.email = column.text;
+                    case "text64":
+                        return objectValues.leadId = column.leadComeFrom;
                     case "text01":
                         return objectValues.leadId = column.text;
                     case "connect_boards":

@@ -1,25 +1,25 @@
 module.exports = ( boardId, itemId ) => `
   query{
-      boards(ids: ${boardId}) {
-        id
-        name
-        items(ids: ${itemId}) {
-          id
-          name
-          subitems {
+          boards(ids: ${boardId} ) {
             id
             name
-            column_values {
+            items(ids: ${itemId}) {
               id
-              value
-              text
-              title
-              description
-              type
-              
+              name
+              subitems {
+                id
+                name
+                column_values {
+                  id
+                  value
+                  text
+                  title
+                  description
+                  type
+                  
+                }
+              }
             }
           }
-        }
-      }
 }
 `
