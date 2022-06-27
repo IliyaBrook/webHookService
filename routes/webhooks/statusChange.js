@@ -58,7 +58,7 @@ router.post('/changeStatus',  async (req, res, next) => {
                         case "text3":
                             return objectValues.salesMan = column.text;
                         case "connect_boards":
-                            console.log('brook courseItemId:', column.value)
+                            console.log('brook courseItemId:', column)
                             return courseItemId = JSON.parse(column.value).linkedPulseIds?.[0].linkedPulseId;
                     }
                 })
