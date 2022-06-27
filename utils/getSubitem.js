@@ -18,9 +18,9 @@ module.exports = async (itemId, boardId) => {
         address:'',
     }
     console.log('brook check data 1:', JSON.stringify(data.boards))
-    console.log('brook check data 1:', JSON.stringify(data.boards[0]))
-    console.log('brook check data 1:', JSON.stringify(data.boards[0].items[0]))
-    console.log('brook check data 1:', JSON.stringify(data.boards[0].items[0].subitems[0].column_values, null,2))
+    console.log('brook check data 2:', JSON.stringify(data.boards[0]))
+    console.log('brook check data 3:', JSON.stringify(data.boards[0].items[0]))
+    console.log('brook check data 4:', JSON.stringify(data.boards[0].items[0].subitems[0].column_values, null,2))
 
     const subItemColumnValues =  data.boards[0].items[0].subitems[0].column_values;
 
