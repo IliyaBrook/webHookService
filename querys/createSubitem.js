@@ -12,7 +12,7 @@ module.exports = ( name, parentId, object ) => `
       \\\"text\\\":\\\"${object.leadComeFrom}\\\",
       \\\"text4\\\":\\\"${object.address}\\\",
       \\\"text_17\\\":\\\"${object.phone}\\\",
-      \\\"text_2\\\":\\\"${object.email}\\\",
+      \\\"text_2\\\":\\\"${object.email}\\\"
       }"
         ){
           column_values{

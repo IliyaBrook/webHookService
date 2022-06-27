@@ -1,5 +1,4 @@
 const useFetch = require('./fetch');
-const queryColumnValues = require('../querys/getItemColumnValues');
 const getSubItem = require('../querys/getSubItem');
 
 module.exports = async (itemId, boardId) => {
