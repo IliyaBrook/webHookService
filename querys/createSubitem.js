@@ -4,7 +4,6 @@ module.exports = ( name, parentId, object ) => `
       parent_item_id: ${parentId}, 
       item_name: ${name}, 
       column_values: \"{
-      \\\"person\\\":\\\"${object.owner}\\\",
       \\\"date\\\":\\\"${object.date}\\\",
       \\\"text_196\\\":\\\"${object.lead}\\\",
       \\\"text_14\\\":\\\"${object.leadId}\\\",
