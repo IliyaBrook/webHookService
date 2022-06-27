@@ -35,6 +35,7 @@ router.post('/changeStatus',  (req, res, next) => {
             let courseItemId;
 
             itemData.column_values.forEach(column => {
+                console.log('brook column :', column)
                 switch (column.id) {
                     case 'person':
                         return objectValues.owner = column.text;
@@ -54,19 +55,6 @@ router.post('/changeStatus',  (req, res, next) => {
                        return courseItemId = JSON.parse(column.value).linkedPulseIds?.[0].linkedPulseId;
                 }
             })
-
-            const coursesDevBoardId = 2845119150;
-            const coursesProdBoardId = 2716641395;
-
-            // console.log('///all///')
-            // console.log('all items values', JSON.stringify(itemData.column_values, null, 2))
-            // console.log('///all///')
-            // console.log('///end///')
-
-            // console.log("brook courseId:", courseItemId)
-            // console.log("brook itemName:",itemName)
-
-
 
          await fetch(createSubItem(itemName, courseItemId, objectValues))
                 .then(createItemRes => console.log('create item res:', createItemRes))
