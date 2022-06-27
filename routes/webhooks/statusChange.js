@@ -4,12 +4,14 @@ const app = require('../../app');
 const fetch = require('../../utils/fetch');
 const queryItems = require('../../querys/itemsAndColumnValues');
 const createSubItem = (require('../../querys/createSubitem'))
+const deleteItem = (require('../../querys/itemDelete'))
 
 
 
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
 router.post('/changeStatus',  async (req, res, next) => {
+
     const { boardId, groupId, pulseId: itemId } = req.body?.event;
     await fetch(queryItems(boardId, groupId, itemId))
         .then(async queryRes => {
@@ -59,8 +61,11 @@ router.post('/changeStatus',  async (req, res, next) => {
 
          await fetch(createSubItem(itemName, courseItemId, objectValues))
                 .then(createItemRes => console.log('create item res:', createItemRes))
+         await fetch(deleteItem(itemId))
+             .then(res => console.log('delete item response:', res))
         })
         .catch(queryError => console.log('queryError: ', queryError))
+    return res.status(200).send(req.body);
 });
 
 //respond to monday api
