@@ -67,13 +67,12 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log("brook email:",email)
             console.log("brook leadComeFrom:",leadComeFrom)
             console.log("brook leadNumber:",leadNumber)
-            console.log("brook courseId:",courseItemId)
+            console.log("brook courseId:", courseItemId)
             console.log("brook itemName:",itemName)
 
-        }).then( () => {
-            const subItemId = getSubItems('2858433186')
+            const subItemId = await getSubItems(courseItemId)
             console.log('brook subItemId hook:', subItemId)
-    })
+        })
         .catch(queryError => console.log('queryError: ', queryError))
     res.post(res.status(200).send(req.body))
 });
