@@ -7,7 +7,7 @@ module.exports = ( name, parentId, object ) => `
       \\\"date\\\":\\\"${object.date}\\\",
       \\\"text_17\\\":\\\"${object.phone}\\\",
       \\\"text_2\\\":\\\"${object.email}\\\",
-      \\\"______\\\":\\\"${ object.saleAmount }\\\",
+      \\\"______\\\":\\\"${ object.saleAmount }\\\"
       }"
         ){
           column_values{
