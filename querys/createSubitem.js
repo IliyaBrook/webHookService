@@ -1,5 +1,7 @@
 module.exports = ( name, parentId, object ) => {
     console.log('brook provided obj:', object)
+    console.log('brook provided name:', object)
+    console.log('brook provided parentId:', parentId)
     return `
      mutation {
       create_subitem(
