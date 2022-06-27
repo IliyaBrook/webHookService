@@ -1,4 +1,6 @@
-module.exports = ( name, parentId, object ) => `
+module.exports = ( name, parentId, object ) => {
+    console.log('brook provided obj:', object)
+    return `
      mutation {
       create_subitem(
       parent_item_id: ${parentId}, 
@@ -19,3 +21,4 @@ module.exports = ( name, parentId, object ) => `
       }
     }
 `
+}

@@ -12,8 +12,8 @@ const createSubItem = (require('../../querys/createSubitem'))
 
 router.post('/changeStatus',  (req, res, next) => {
     const { boardId, groupId, pulseId: itemId } = req.body?.event;
-    console.log('brook test main query boardId:', boardId)
-    console.log('brook test main query itemId:', itemId)
+    // console.log('brook test main query boardId:', boardId)
+    // console.log('brook test main query itemId:', itemId)
     fetch(queryItems(boardId, groupId, itemId))
         .then(async queryRes => {
             const itemData = queryRes.data.boards?.[0].groups?.[0].items?.[0];
@@ -58,17 +58,14 @@ router.post('/changeStatus',  (req, res, next) => {
             const coursesDevBoardId = 2845119150;
             const coursesProdBoardId = 2716641395;
 
-            console.log('///all///')
-            console.log('all items values', JSON.stringify(itemData.column_values, null, 2))
-            console.log('///all///')
-            console.log('///end///')
+            // console.log('///all///')
+            // console.log('all items values', JSON.stringify(itemData.column_values, null, 2))
+            // console.log('///all///')
+            // console.log('///end///')
 
-            console.log("brook courseId:", courseItemId)
-            console.log("brook itemName:",itemName)
+            // console.log("brook courseId:", courseItemId)
+            // console.log("brook itemName:",itemName)
 
-
-         const subItemKeysObj = await getSubItems(courseItemId, coursesDevBoardId )
-            console.log('brook sub item keys 555', subItemKeysObj)
 
 
          await fetch(createSubItem(itemName, courseItemId, objectValues))
