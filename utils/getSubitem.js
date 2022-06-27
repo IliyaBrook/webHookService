@@ -20,7 +20,7 @@ module.exports = async (itemId, boardId) => {
 
     const subItemColumnValues2 = await useFetch(getSubItem(boardId, itemId))
 
-    console.log('brook subItemColumnValues2:', subItemColumnValues2)
+    console.log('brook subItemColumnValues2:', JSON.stringify(subItemColumnValues2, null, 2))
 
     const devSubitemIds = {
         owner:'',
