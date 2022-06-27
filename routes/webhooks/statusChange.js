@@ -75,7 +75,7 @@ router.post('/changeStatus',  (req, res, next) => {
          const subItemKeysObj = await getSubItems(courseItemId, coursesDevBoardId )
             console.log('brook sub item keys 555', subItemKeysObj)
 
-            const objectValues = { owner, date, leadId, saleAmount, leadComeFrom, address, phone }
+            const objectValues = { owner, date, leadId, saleAmount, leadComeFrom, address, phone, email }
             const values = Object.values(objectValues)
             const keys = Object.values(subItemKeysObj)
             const objNewSubItem = {}
