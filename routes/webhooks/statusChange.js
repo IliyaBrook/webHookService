@@ -6,6 +6,7 @@ const queryItems = require('../../querys/itemsAndColumnValues');
 const getSubItems = require('../../utils/getSubitem');
 
 
+
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
 router.post('/changeStatus',  (req, res, next) => {
@@ -13,7 +14,7 @@ router.post('/changeStatus',  (req, res, next) => {
     console.log('brook test main query boardId:', boardId)
     console.log('brook test main query itemId:', itemId)
     fetch(queryItems(boardId, groupId, itemId))
-        .then(queryRes => {
+        .then(async queryRes => {
             const itemData = queryRes.data.boards[0].groups[0].items[0]
             const itemName = itemData.name;
             let salesman = {};
@@ -68,10 +69,8 @@ router.post('/changeStatus',  (req, res, next) => {
 
 
 
-         getSubItems(courseItemId, coursesDevBoardId )
-                .then(getSubItemRes => {
-                    console.log('brook sub item keys 555', getSubItemRes)
-                })
+         const subItemKeysObj = await getSubItems(courseItemId, coursesDevBoardId )
+            console.log('brook sub item keys 555', subItemKeysObj)
         })
         .catch(queryError => console.log('queryError: ', queryError))
     res.post(res.status(200).send(req.body))
