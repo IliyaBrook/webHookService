@@ -17,7 +17,7 @@ router.post('/changeStatus',  (req, res, next) => {
 
     fetch(queryItems(boardId, groupId, itemId))
         .then(async queryRes => {
-            const data = await queryRes.json();
+            const data = await queryRes;
             const itemData = data.data.boards[0].groups[0].items[0]
 
             // console.log('brook item data:', itemData);
