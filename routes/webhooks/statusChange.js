@@ -22,7 +22,7 @@ router.post('/changeStatus',  (req, res, next) => {
             let saleAmount, dateOfSigning,
                 date, address,
                 phone, email, leadComeFrom,
-                leadId, courseItem, owner;
+                leadId, courseItemId, owner;
 
             itemData.column_values.forEach(column => {
                 switch (column.id) {
@@ -47,7 +47,7 @@ router.post('/changeStatus',  (req, res, next) => {
                     case "owner9":
                         return owner = column.text;
                     case "connect_boards":
-                       return courseItem = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
+                       return courseItemId = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
                 }
             })
 
@@ -66,7 +66,7 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log("brook email:",email)
             console.log("brook leadComeFrom:",leadComeFrom)
             console.log("brook leadId:",leadId)
-            console.log("brook courseId:", courseItem)
+            console.log("brook courseId:", courseItemId)
             console.log("brook itemName:",itemName)
             console.log("brook owner:", owner)
 
