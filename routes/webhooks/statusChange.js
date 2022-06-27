@@ -87,7 +87,7 @@ router.post('/changeStatus',  (req, res, next) => {
                 return objNewSubItem[key] = values[idx]
             })
 
-            fetch(createSubItem(itemName, courseItemId, objNewSubItem))
+            fetch(createSubItem(itemName, courseItemId, objectValues))
                 .then(createItemRes => console.log('create item res:', createItemRes))
             console.log('object new sub Item:', objNewSubItem )
         })
