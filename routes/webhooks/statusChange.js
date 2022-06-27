@@ -55,7 +55,10 @@ router.post('/changeStatus',  (req, res, next) => {
                        return courseItemId = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
                 }
             })
-
+            console.log('///all///')
+            console.log('all items', data)
+            console.log('///all///')
+            console.log('///end///')
             console.log("brook saleAmount:",saleAmount)
             console.log("brook dateOfSigning:",dateOfSigning)
             console.log("brook leadDate:",leadDate)
