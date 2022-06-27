@@ -7,9 +7,9 @@ module.exports = async (itemId) => {
     const data = await useFetch(queryColumnValues(itemId))
         .then(async (response) => {
             console.log('brook response:', response)
-            return data;
+            return response;
         })
-
+    console.log('brook response data 11111:', data)
 
     const data2 = await useFetch(queryColumnValues(itemId))
     console.log('brook response data 2222:', data2)
