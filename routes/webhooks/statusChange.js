@@ -11,10 +11,6 @@ const getSubItems = require('../../utils/getSubitem');
 router.post('/changeStatus',  (req, res, next) => {
     const { boardId, groupId, pulseId: itemId } = req.body?.event;
 
-    // console.log('brook board: ', boardId)
-    // console.log('brook groupId: ', groupId)
-    // console.log('brook itemId: ', itemId)
-
     fetch(queryItems(boardId, groupId, itemId))
         .then(queryRes => {
             const itemData = queryRes.data.boards[0].groups[0].items[0]
