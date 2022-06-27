@@ -68,9 +68,9 @@ router.post('/changeStatus',  (req, res, next) => {
 
 
 
-            getSubItems(courseItemId, coursesDevBoardId )
+         getSubItems(courseItemId, coursesDevBoardId )
                 .then(getSubItemRes => {
-                    console.log('brook getSubItemRes', getSubItemRes)
+                    console.log('brook sub item keys 555', getSubItemRes)
                 })
         })
         .catch(queryError => console.log('queryError: ', queryError))
