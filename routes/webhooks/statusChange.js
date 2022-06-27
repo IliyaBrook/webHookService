@@ -56,7 +56,7 @@ router.post('/changeStatus',  (req, res, next) => {
                 }
             })
             console.log('///all///')
-            console.log('all items', data)
+            console.log('all items values', JSON.stringify(itemData.column_values, null, 2))
             console.log('///all///')
             console.log('///end///')
             console.log("brook saleAmount:",saleAmount)
