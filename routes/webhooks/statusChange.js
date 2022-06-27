@@ -62,9 +62,9 @@ router.post('/changeStatus',  async (req, res, next) => {
         })
         .catch(queryError => console.log('queryError: ', queryError))
 
-    if (req.method === 'post') {
-        return res.post(res.status(200).send(req.body))
-    }
+    app.post("/", function(req, res) {
+        res.status(200).send(req.body);
+    })
 });
 
 
