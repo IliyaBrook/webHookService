@@ -16,7 +16,15 @@ module.exports = async (itemId) => {
     })
     console.log('brook subItemValue result:', subItemValue)
     console.log('brook subItemValue result [0]:', subItemValue[0])
+
     // const valueProd = JSON.parse(subItemValue[0].value ).linkedPulseIds[0].linkedPulseId;
-    // const valueDev = JSON.parse(subItemValue[1].value ).linkedPulseIds[0].linkedPulseId;
+    // const valueDev = JSON.parse(subItemValue[0].value ).linkedPulseIds[0].linkedPulseId;
+
+    const valueProd = JSON.parse(subItemValue[0].value);
+    const valueDev = JSON.parse(subItemValue[0].value);
+
+    console.log('brook valueProd', valueProd)
+    console.log('brook valueDev', valueDev)
+
     // return {valueProd, valueDev}
 }
