@@ -61,7 +61,7 @@ router.post('/changeStatus',  (req, res, next) => {
         })
         .catch(queryError => console.log('queryError: ', queryError))
 
-    res.post(res.status(200).send(req.body))
+    // res.post(res.status(200).send(req.body))
 });
 
 
