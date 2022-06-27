@@ -61,8 +61,10 @@ router.post('/changeStatus',  async (req, res, next) => {
 
          await fetch(createSubItem(itemName, courseItemId, objectValues))
                 .then(createItemRes => console.log('create item res:', createItemRes))
-         await fetch(deleteItem(itemId))
-             .then(res => console.log('delete item response:', res))
+             // .then(() => {
+             //     fetch(deleteItem(itemId))
+             //         .then(res => console.log('delete item response:', res))
+             // })
         })
         .catch(queryError => console.log('queryError: ', queryError))
     return res.status(200).send(req.body);
