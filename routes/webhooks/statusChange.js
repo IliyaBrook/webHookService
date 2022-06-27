@@ -10,11 +10,11 @@ const createSubItem = (require('../../querys/createSubitem'))
 
 // https://progeeksservice.herokuapp.com/monday/webhook/changeStatus
 
-router.post('/changeStatus',  (req, res, next) => {
+router.post('/changeStatus',  async (req, res, next) => {
     const { boardId, groupId, pulseId: itemId } = req.body?.event;
     // console.log('brook test main query boardId:', boardId)
     // console.log('brook test main query itemId:', itemId)
-    fetch(queryItems(boardId, groupId, itemId))
+    await fetch(queryItems(boardId, groupId, itemId))
         .then(async queryRes => {
             const itemData = queryRes.data.boards?.[0].groups?.[0].items?.[0];
             const itemName = itemData.name;
@@ -29,7 +29,8 @@ router.post('/changeStatus',  (req, res, next) => {
                 leadComeFrom: '',
                 address: '',
                 phone: '',
-                email: ''
+                email: '',
+                salesMan:''
             }
 
             let courseItemId;
@@ -37,20 +38,20 @@ router.post('/changeStatus',  (req, res, next) => {
             itemData.column_values.forEach(column => {
                 console.log('brook column :', column)
                 switch (column.id) {
-                    case 'person':
-                        return objectValues.owner = column.text;
+                    case 'owner9':
+                        return objectValues.salesMan = column.text;
                     case 'numbers':
                         return objectValues.saleAmount = column.text;
-                    case 'date':
+                    case '___________________8':
                         return objectValues.date = column.text;
-                    case 'text4':
+                    case 'location6':
                         return objectValues.address = column.text;
-                    case 'text_17':
+                    case 'text':
                         return objectValues.phone = column.text;
-                    case 'text_14':
+                    case "text6":
+                        return objectValues.email = column.text;
+                    case "text01":
                         return objectValues.leadId = column.text;
-                    case "text_196":
-                        return objectValues.lead = column.text;
                     case "connect_boards":
                        return courseItemId = JSON.parse(column.value).linkedPulseIds?.[0].linkedPulseId;
                 }
