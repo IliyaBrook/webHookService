@@ -47,6 +47,10 @@ router.post('/changeStatus',  (req, res, next) => {
                        return courseItemId = JSON.parse(column.value).linkedPulseIds[0].linkedPulseId;
                 }
             })
+
+            const coursesDevBoardId = 2845119150;
+            const coursesProdBoardId = 2716641395;
+
             console.log('///all///')
             console.log('all items values', JSON.stringify(itemData.column_values, null, 2))
             console.log('///all///')
@@ -62,7 +66,7 @@ router.post('/changeStatus',  (req, res, next) => {
             console.log("brook courseId:", courseItemId)
             console.log("brook itemName:",itemName)
 
-            getSubItems(courseItemId, boardId )
+            getSubItems(courseItemId, coursesDevBoardId )
                 .then(getSubItemRes => {
                     console.log('brook getSubItemRes', getSubItemRes)
                 })

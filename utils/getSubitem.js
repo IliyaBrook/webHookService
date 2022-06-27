@@ -3,11 +3,11 @@ const queryColumnValues = require('../querys/getItemColumnValues');
 const getSubItem = require('../querys/getSubItem');
 
 module.exports = async (itemId, boardId) => {
-    const data = await useFetch(queryColumnValues(itemId))
-    const columnValues = data.data?.items[0].column_values;
-    const subItemValue = columnValues.filter(value => value.type === "subtasks")
+    // const data = await useFetch(queryColumnValues(itemId))
+    // const columnValues = data.data?.items[0].column_values;
+    // const subItemValue = columnValues.filter(value => value.type === "subtasks")
 
-    console.log('brook subItemValue:', subItemValue)
+    // console.log('brook subItemValue:', subItemValue)
 
     // const courseProdId = JSON.parse(subItemValue[0].value).linkedPulseIds[0].linkedPulseId;
     // const courseDevId = JSON.parse(subItemValue[0].value).linkedPulseIds[1].linkedPulseId;
